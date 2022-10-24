@@ -1,0 +1,10 @@
+.main-menu a {
+    color: #0D1028;
+    font-size: 18px;
+}
+
+.main-menu a:hover,
+.active {
+    color: #91C73D !important;
+
+}
