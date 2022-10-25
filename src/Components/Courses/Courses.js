@@ -5,7 +5,6 @@ import SingleCourse from '../SingleCourse/SingleCourse';
 
 const Courses = () => {
     const courses = useLoaderData();
-    console.log(courses);
     return (
         <div className='courses px-lg-4 p-2'>
             <div className="container-fluid my-4">
