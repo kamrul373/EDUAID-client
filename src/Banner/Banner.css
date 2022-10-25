@@ -1,0 +1,90 @@
+/* banner */
+.banner {
+    background-image: url("../assets/img/banner-bg.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    z-index: 999;
+}
+
+.banner::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 3, 32, .66);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.banner-content {
+    width: 60%;
+    padding: 50px 0;
+}
+
+.banner-content h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+.banner-content p {
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+
+p.sub-heading {
+    color: #91C73D;
+    font-size: 20px;
+}
+
+.explore-course-btn {
+    background-color: #91C73D;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 1s;
+    margin-top: 30px;
+}
+
+.explore-course-btn:hover {
+    background-color: #29A879;
+}
+
+/* Banner Responsive css  */
+@media all and (max-width:768px) {
+    .banner {
+        padding: 20px 0;
+    }
+
+    .banner-content {
+        width: 90%;
+        padding: 30px 0;
+    }
+
+    .banner-content h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .banner-content p {
+        display: none;
+    }
+
+    p.sub-heading {
+        font-size: 18px;
+        display: block;
+    }
+
+    .explore-course-btn {
+        margin-top: 15px;
+    }
+
+}

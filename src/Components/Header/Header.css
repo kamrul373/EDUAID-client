@@ -1,6 +1,8 @@
 .main-menu a {
     color: #0D1028;
     font-size: 18px;
+    font-weight: 600;
+    transition: color .5s;
 }
 
 .main-menu a:hover,
