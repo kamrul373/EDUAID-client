@@ -1,6 +1,6 @@
 /* banner */
 .banner {
-    background-image: url("../assets/img/banner-bg.jpg");
+    background-image: url("../../../assets/img/banner-bg.jpg");
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -42,8 +42,12 @@ p.sub-heading {
     font-size: 20px;
 }
 
+.banner-content button {
+    margin-top: 20px;
+}
+
 .explore-course-btn {
-    background-color: #91C73D;
+    background-color: #6CA12B;
     color: white;
     border: none;
     padding: 10px 30px;
@@ -51,7 +55,7 @@ p.sub-heading {
     font-weight: bold;
     font-size: 18px;
     transition: background-color 1s;
-    margin-top: 30px;
+
 }
 
 .explore-course-btn:hover {
