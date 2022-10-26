@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blogs from "../../Components/Blogs/Blogs";
 import Courses from "../../Components/Courses/Courses";
+import Details from "../../Components/Details/Details";
 import FAQ from "../../Components/FAQ/FAQ";
 import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
@@ -26,6 +27,16 @@ const router = createBrowserRouter([
                 path: "/courses/:cat_id",
                 loader: async ({ params }) => fetch(`http://localhost:5000/categories/${params.cat_id}`),
                 element: <Courses></Courses>
+            },
+            {
+                path: "/courses/type/:type",
+                loader: async ({ params }) => fetch(`http://localhost:5000/course-type/${params.type}`),
+                element: <Courses></Courses>
+            },
+            {
+                path: "/course-details/:id",
+                loader: async ({ params }) => fetch(`http://localhost:5000/courses-details/${params.id}`),
+                element: <Details></Details>
             },
             { path: "/faq", element: <FAQ></FAQ> },
             { path: "/blogs", element: <Blogs></Blogs> },

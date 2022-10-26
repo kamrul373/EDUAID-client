@@ -22,7 +22,7 @@ const Courses = () => {
                             }
                         </div>
                     </div>
-                    <div className="col-md-3 d-none d-lg-block">
+                    <div className="col-md-3 d-none mt-3 d-lg-block">
                         <RightSideBar></RightSideBar>
                     </div>
                 </div>
