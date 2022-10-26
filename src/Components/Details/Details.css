@@ -27,4 +27,8 @@
     .course-details .thumb img {
         width: 100%;
     }
+
+    .author h5 {
+        margin-top: 20px;
+    }
 }
