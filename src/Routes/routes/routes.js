@@ -12,11 +12,19 @@ const router = createBrowserRouter([
         path: "/",
         element: <Main></Main>,
         children: [
-            { path: "/", element: <Home></Home> },
+            {
+                path: "/",
+                element: <Home></Home>
+            },
             { path: "/home", element: <Home></Home> },
             {
                 path: "/courses",
                 loader: async () => fetch("http://localhost:5000/courses"),
+                element: <Courses></Courses>
+            },
+            {
+                path: "/courses/:cat_id",
+                loader: async ({ params }) => fetch(`http://localhost:5000/categories/${params.cat_id}`),
                 element: <Courses></Courses>
             },
             { path: "/faq", element: <FAQ></FAQ> },

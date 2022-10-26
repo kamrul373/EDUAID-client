@@ -8,16 +8,17 @@ const RightSideBar = () => {
             .then(response => response.json())
             .then(categories => setCategories(categories));
     }, []);
-    console.log(categories);
     return (
-        <div>
-            <h2>Course Categories</h2>
+        <div className='border p-2'>
+            <h2>Categories</h2>
             {
                 categories.map(category => <Link
-                    to={`/category/${category.category_id}`}
+                    to={`/courses/${category.category_id}`}
                     key={category.category_id}
                     className="text-decoration-none text-dark"
-                >{category.category_name}</Link>)
+                >
+                    <button className='btn btn-light w-100 my-2'>{category.category_name}</button>
+                </Link>)
             }
         </div>
     );
