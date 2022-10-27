@@ -6,7 +6,7 @@ const Blogs = () => {
             <h1 className='my-4 text-success'>Blogs</h1>
             <div className="blogs container" style={{ textAlign: "left" }}>
                 <div className="row">
-                    <div className="blog col-10 mx-auto">
+                    <div className="blog col-lg-10 mx-auto">
                         <div className="title text-center my-2">
                             <h2>What is cors?</h2>
                         </div>
@@ -23,12 +23,12 @@ const Blogs = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="blog col-10 mx-auto">
+                    <div className="blog col-lg-10 mx-auto">
                         <div className="title text-center my-2">
                             <h2>Why are you using firebase? What other options do you have to implement authentication?</h2>
                         </div>
                         <div className="thumb mt-3">
-                            <img src="https://firebase.google.com/images/social.png" alt="cors" />
+                            <img src="https://firebase.google.com/images/social.png" alt="firebase" />
                         </div>
                         <div className="content">
                             <p>
@@ -40,6 +40,53 @@ const Blogs = () => {
                             <p>
                                 Therefore, implementing Firebase means plugging a ready-made backend into your client code to make it dynamic. Ultimately, it eliminates the need to write backend code from scratch and gives you a fully functional one instead.Firebase is a less technical and time-saving alternative to writing full-fledged backend code for dynamic apps.
                             </p>
+                            <p className='text-success'>What other options do you have to implement authentication?</p>
+                            <ul>
+                                <li>Okta</li>
+                                <li>Amazon Cognito</li>
+                                <li>OneLogin</li>
+                                <li>Auth0</li>
+                                <li>Authress</li>
+                                <li>Frontegg</li>
+                                <li>Cookie-Based authentication</li>
+                                <li>Token-Based authentication</li>
+                                <li>Third party access(OAuth, API-token)</li>
+                                <li>OpenId</li>
+                                <li>SAML</li>
+                                <li>STYTCH  etc.</li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div className="blog col-lg-10 mx-auto">
+                        <div className="title text-center my-2">
+                            <h2>How does the private route work?</h2>
+                        </div>
+                        <div className="thumb mt-3">
+                            <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--E0vtJqHL--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/7is2fvy499tnuhv8p66v.png" alt="private route" />
+                        </div>
+                        <div className="content">
+                            <p>The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).</p>
+
+                            <p>Private Routes in React Router (also called Protected Routes) require a user being authorized to visit a route (read: page). So if a user is not authorized for a specific page, they cannot access it. The most common example is authentication in a React application where a user can only access the protected pages when they are authorized (which means in this case being authenticated). Authorization goes beyond authentication though. For example, a user can also have roles and permissions which give a user access to specific areas of the application.</p>
+                        </div>
+                    </div>
+                    <div className="blog col-lg-10 mx-auto">
+                        <div className="title text-center my-2">
+                            <h2>What is Node? How does Node work?</h2>
+                        </div>
+                        <div className="thumb mt-3">
+                            <img src="https://kinsta.com/wp-content/uploads/2021/03/Nodejs-Architecture.png" alt="node" />
+                        </div>
+                        <div className="content">
+                            <p>Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on a JavaScript Engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications</p>
+                            <p className='text-success'>How does Node work?</p>
+                            <p>
+                                Node. js runs on chrome v8 engine which converts javascript code into machine code
+                                The single thread is the event loop which is responsible for running all functions and requests. The asynchronous behavior is extremely important when using node, because it guarantees that the event loop is never blocked by a synchronous function.
+                            </p>
+                            <p>There is only one event loop, when a request is made the loop passes the request to an asynchronous function which does the work. When this function is done and a response is returned, it can then be passed back to the event loop to be executed by the callback and sent to the user. If the functions were synchronous then the event loop would get locked up with one clients request and response, and all other clients would have to wait till that client was done. Because of the the asynchronous nature of JavaScript, the applications using node can handle many requests happening at the same time. This means that when programming in Node.js it is important to always keep in mind that the functions being written are not synchronous.</p>
                         </div>
                     </div>
                 </div>
