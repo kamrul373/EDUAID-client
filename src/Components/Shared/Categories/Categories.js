@@ -5,7 +5,7 @@ import handleBtn from '../../../utility/handleActiveState';
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("https://eduaid-server-side.vercel.app/categories")
             .then(response => response.json())
             .then(categories => setCategories(categories));
     }, []);

@@ -25,27 +25,27 @@ const router = createBrowserRouter([
             { path: "/home", element: <Home></Home> },
             {
                 path: "/courses",
-                loader: async () => fetch("http://localhost:5000/courses"),
+                loader: async () => fetch("https://eduaid-server-side.vercel.app/courses"),
                 element: <Courses></Courses>
             },
             {
                 path: "/courses/:cat_id",
-                loader: async ({ params }) => fetch(`http://localhost:5000/categories/${params.cat_id}`),
+                loader: async ({ params }) => fetch(`https://eduaid-server-side.vercel.app/categories/${params.cat_id}`),
                 element: <Courses></Courses>
             },
             {
                 path: "/courses/type/:type",
-                loader: async ({ params }) => fetch(`http://localhost:5000/course-type/${params.type}`),
+                loader: async ({ params }) => fetch(`https://eduaid-server-side.vercel.app/course-type/${params.type}`),
                 element: <Courses></Courses>
             },
             {
                 path: "/course-details/:id",
-                loader: async ({ params }) => fetch(`http://localhost:5000/courses-details/${params.id}`),
+                loader: async ({ params }) => fetch(`https://eduaid-server-side.vercel.app/courses-details/${params.id}`),
                 element: <Details></Details>
             },
             {
                 path: "/checkout/:id",
-                loader: async ({ params }) => fetch(`http://localhost:5000/courses-details/${params.id}`),
+                loader: async ({ params }) => fetch(`https://eduaid-server-side.vercel.app/courses-details/${params.id}`),
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             },
             {

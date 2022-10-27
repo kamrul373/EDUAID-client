@@ -6,7 +6,7 @@ import "./CourseType.css";
 const CourseType = () => {
     const [types, setTypes] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/course-type")
+        fetch("https://eduaid-server-side.vercel.app/course-type")
             .then(response => response.json())
             .then(types => setTypes(types));
     }, []);
