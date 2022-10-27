@@ -7,7 +7,9 @@ import "./Details.css";
 const ref = React.createRef();
 
 const Details = () => {
+    // loading data
     const details = useLoaderData();
+    // destructuring
     const { id, title, img, price, info, instructor, summary, category } = details;
     return (
         <div className='course-details' ref={ref} >
@@ -24,6 +26,7 @@ const Details = () => {
                     </Pdf>
                 </div>
                 <p className='fs-5 mt-3'>{summary}</p>
+                {/* course heighlight */}
                 <div className='course-heighlight'>
                     <span className='mt-4 me-3 badge text-bg-danger'>{info.course_type} Sesion</span>
                     <span className='mt-4 me-3 badge text-bg-success'> {info.lesson} Lesson</span>

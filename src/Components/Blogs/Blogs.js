@@ -6,6 +6,7 @@ const Blogs = () => {
             <h1 className='my-4 text-success'>Blogs</h1>
             <div className="blogs container" style={{ textAlign: "left" }}>
                 <div className="row">
+                    {/* blog 1 */}
                     <div className="blog col-lg-10 mx-auto">
                         <div className="title text-center my-2">
                             <h2>What is cors?</h2>
@@ -23,6 +24,7 @@ const Blogs = () => {
                             </p>
                         </div>
                     </div>
+                    {/* blog 2 */}
                     <div className="blog col-lg-10 mx-auto">
                         <div className="title text-center my-2">
                             <h2>Why are you using firebase? What other options do you have to implement authentication?</h2>
@@ -59,6 +61,7 @@ const Blogs = () => {
 
                         </div>
                     </div>
+                    {/* blog 3 */}
                     <div className="blog col-lg-10 mx-auto">
                         <div className="title text-center my-2">
                             <h2>How does the private route work?</h2>
@@ -72,6 +75,7 @@ const Blogs = () => {
                             <p>Private Routes in React Router (also called Protected Routes) require a user being authorized to visit a route (read: page). So if a user is not authorized for a specific page, they cannot access it. The most common example is authentication in a React application where a user can only access the protected pages when they are authorized (which means in this case being authenticated). Authorization goes beyond authentication though. For example, a user can also have roles and permissions which give a user access to specific areas of the application.</p>
                         </div>
                     </div>
+                    {/* blog 4 */}
                     <div className="blog col-lg-10 mx-auto">
                         <div className="title text-center my-2">
                             <h2>What is Node? How does Node work?</h2>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./SingleCourse.css";
 
 const SingleCourse = ({ course }) => {
+    // destructuring
     const { id, title, img, price, info, instructor, summary, category } = course;
     return (
         <div className="col single-course rounded ">

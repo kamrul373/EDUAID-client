@@ -57,11 +57,7 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" name="password" required />
                     </Form.Group>
-                    <div className='text-center'>
-                        <Button variant="success" type="submit" className="w-50">
-                            Login
-                        </Button>
-                    </div>
+                    {/* conditional error formating */}
                     <Form.Text className="text-danger">
                         <p className='text-center mt-2'>
                             {
@@ -69,6 +65,11 @@ const Login = () => {
                             }
                         </p>
                     </Form.Text>
+                    <div className='text-center'>
+                        <Button variant="success" type="submit" className="w-50">
+                            Login
+                        </Button>
+                    </div>
                 </Form>
                 <div>
                     <p>Or Login with</p>

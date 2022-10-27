@@ -9,13 +9,17 @@ import { AuthContext } from '../../../context/AuthContextProvider';
 import "./Header.css";
 
 const Header = () => {
+    // toogle mode
     const [mode, setMode] = useState(false)
+    // auth context
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
+    // logout event handler
     const handleLogOut = () => {
         logOut().then(() => { navigate("/login") })
             .catch(error => console.log(error))
     }
+    // mode event handler
     const handlemode = () => {
         setMode(!mode);
     }
@@ -37,7 +41,8 @@ const Header = () => {
                             <NavLink
                                 className={`text-decoration-none me-4  ${({ isActive }) => isActive && "active"} `} to="/faq">FAQ</NavLink>
                             <NavLink
-                                className={`text-decoration-none me-4  ${({ isActive }) => isActive && "active"} `} to="/blogs">Blogs</NavLink>
+                                className={`text-decoration-none me-4  ${({ isActive }) => isActive && "active"} `} to="/blogs">Blog</NavLink>
+                            {/* Conditional foramting */}
                             {
                                 user ?
                                     <>
@@ -65,8 +70,6 @@ const Header = () => {
                                     <>
                                         <NavLink
                                             className={`text-decoration-none me-4 ${({ isActive }) => isActive && "active"} `} to="/login">Login</NavLink>
-                                        <NavLink
-                                            className={`text-decoration-none me-4 ${({ isActive }) => isActive && "active"} `} to="/register">Regsiter</NavLink>
                                     </>
                             }
 

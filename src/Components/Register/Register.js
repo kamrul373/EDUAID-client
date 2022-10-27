@@ -39,6 +39,7 @@ const Register = () => {
         }
 
     }
+    // password error handler
     const handlePassword = (e) => {
         const password = e.target.value;
         if (password.length < 6) {
@@ -52,6 +53,7 @@ const Register = () => {
         }
 
     }
+    // terms and condition checkbox event handler
     const handleChecked = (e) => {
         const checkbox = e.target.checked;
         setChecked(checkbox)
@@ -78,6 +80,7 @@ const Register = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" name="password" onBlur={handlePassword} required />
                     </Form.Group>
+                    {/* conditional error formating */}
                     <Form.Text className="text-danger">
                         {
                             error && error

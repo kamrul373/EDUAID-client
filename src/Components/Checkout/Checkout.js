@@ -2,10 +2,12 @@ import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
+    // loading data
     const courseData = useLoaderData();
-    const navigate = useNavigate();
     const { title, img, price, instructor } = courseData;
-
+    // navigation hooks
+    const navigate = useNavigate();
+    // order confirmation event handler
     const handleCheckout = (e) => {
         navigate("/order-confirmed");
     }
@@ -14,6 +16,7 @@ const Checkout = () => {
             <h2>Checkout</h2>
             <div className='container mt-3'>
                 <div className="row">
+                    {/* dynamically loading ordered course data */}
                     <div className="card mb-3 col-12 col-lg-9" style={{ textAlign: "left" }} >
                         <div className="row p-3">
                             <div className="col-md-4">
@@ -28,6 +31,7 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
+                    {/* customer order form */}
                     <form onSubmit={handleCheckout} className="col-lg-3 col-12 text-center">
                         <div className="col-auto mb-2">
                             <label htmlFor="staticfname" className="visually-hidden">First Name</label>

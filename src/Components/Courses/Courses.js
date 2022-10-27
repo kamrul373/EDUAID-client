@@ -4,6 +4,7 @@ import RightSideBar from '../Shared/RightSideBar/RightSideBar';
 import SingleCourse from '../SingleCourse/SingleCourse';
 
 const Courses = () => {
+    // loading data
     const courses = useLoaderData();
     return (
         <div className='courses px-lg-4 p-2'>
