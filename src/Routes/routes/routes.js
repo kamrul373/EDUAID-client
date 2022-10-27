@@ -7,6 +7,7 @@ import FAQ from "../../Components/FAQ/FAQ";
 import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
 import Register from "../../Components/Register/Register";
+import ErrorElment from "../../Components/Shared/ErrorElment/ErrorElment";
 import ThankYou from "../../Components/Shared/ThankYou/ThankYou";
 import Main from "../../Layout/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorElment></ErrorElment>,
         children: [
             {
                 path: "/",
