@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { CategoryContext } from '../../../App';
 import handleBtn from '../../../utility/handleActiveState';
 
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
-    useEffect(() => {
-        fetch("https://eduaid-server-side.vercel.app/categories")
-            .then(response => response.json())
-            .then(categories => setCategories(categories));
-    }, []);
+    const categories = useContext(CategoryContext)
     return (
         <div className='mt-2'>
             <h2>Categories</h2>

@@ -1,0 +1,17 @@
+.home-cat .home-cat-card {
+    padding: 15px
+}
+
+.home-cat .home-cat-card:hover {
+    background-color: #91C73D !important;
+    cursor: pointer;
+}
+
+.home-cat a {
+    color: #111;
+    font-weight: 600;
+}
+
+.home-cat:hover a {
+    color: #FFFFFF !important;
+}

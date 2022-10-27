@@ -49,7 +49,7 @@ const Checkout = () => {
                             <label htmlFor="staticPhone" className="visually-hidden">Phone Number</label>
                             <input type="text" className="form-control" id="staticPhone" placeholder='Phone Number' required />
                         </div>
-                        <div class="col-auto">
+                        <div className="col-auto">
                             <button type="submit" className="btn btn-success w-100">Confirm Order</button>
                         </div>
                     </form>
