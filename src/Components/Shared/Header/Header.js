@@ -1,17 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../../assets/img/logo.png";
 import { AuthContext } from '../../../context/AuthContextProvider';
 import "./Header.css";
 
 const Header = () => {
+    const [mode, setMode] = useState(false)
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleLogOut = () => {
-        logOut().then(() => { }).catch(error => console.log(error))
+        logOut().then(() => { navigate("/login") })
+            .catch(error => console.log(error))
+    }
+    const handlemode = () => {
+        setMode(!mode);
     }
     return (
         <header className='main-menu'>
@@ -35,7 +41,6 @@ const Header = () => {
                             {
                                 user ?
                                     <>
-                                        <Link onClick={handleLogOut} className="text-decoration-none me-3 badge text-bg-success logout">Log Out</Link>
                                         <OverlayTrigger
                                             placement="bottom"
                                             overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}
@@ -55,7 +60,7 @@ const Header = () => {
 
                                             )}
                                         </OverlayTrigger>
-
+                                        <Link onClick={handleLogOut} className="text-decoration-none mx-lg-3 my-2 my-lg-0 badge text-bg-success logout">Log Out</Link>
                                     </> :
                                     <>
                                         <NavLink
@@ -65,6 +70,7 @@ const Header = () => {
                                     </>
                             }
 
+                            <Link onClick={handlemode} className={`text-decoration-none badge rounded-pill  ${mode ? "text-bg-dark " : "bg-white"} `}>{mode ? "Dark Mode" : "Light Mode"}</Link>
 
                         </Nav>
                     </Navbar.Collapse>

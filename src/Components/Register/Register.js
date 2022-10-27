@@ -59,7 +59,7 @@ const Register = () => {
     return (
         <div className='container mt-3'>
             <div className="row">
-                <Form onSubmit={handleSubmit} className="col-6 mx-auto bg-light p-4" style={{ textAlign: "left" }}>
+                <Form onSubmit={handleSubmit} className="col-lg-6 mx-auto bg-light p-4" style={{ textAlign: "left" }}>
                     <h2 className='text-center fst-italic'>Register</h2>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>

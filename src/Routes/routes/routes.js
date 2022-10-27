@@ -7,7 +7,9 @@ import FAQ from "../../Components/FAQ/FAQ";
 import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
 import Register from "../../Components/Register/Register";
+import ThankYou from "../../Components/Shared/ThankYou/ThankYou";
 import Main from "../../Layout/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -42,7 +44,11 @@ const router = createBrowserRouter([
             {
                 path: "/checkout/:id",
                 loader: async ({ params }) => fetch(`http://localhost:5000/courses-details/${params.id}`),
-                element: <Checkout></Checkout>
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
+            },
+            {
+                path: "/order-confirmed",
+                element: <PrivateRoute><ThankYou></ThankYou></PrivateRoute>
             },
             { path: "/faq", element: <FAQ></FAQ> },
             { path: "/blogs", element: <Blogs></Blogs> },

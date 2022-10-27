@@ -1,14 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthContextProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     // error state
     const [error, setError] = useState(null);
     // auth context
-    const { login } = useContext(AuthContext);
+    const { login, loginWithProvider } = useContext(AuthContext);
+    // navigate 
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     // login event handler
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,15 +22,30 @@ const Login = () => {
         const password = form.password.value;
         login(email, password)
             .then(response => {
-                const user = response.user;
-                console.log(user);
+                navigate(from, { replace: true });
             }).catch(err => setError(err.message))
         console.log(email, password);
+    }
+    // login with google
+    const handleGoogleProvider = () => {
+        const provider = new GoogleAuthProvider()
+        loginWithProvider(provider)
+            .then(response => {
+                navigate(from, { replace: true })
+            }).catch(err => setError(err.message))
+    }
+    // login with github
+    const handleGithubProvider = () => {
+        const provider = new GithubAuthProvider()
+        loginWithProvider(provider)
+            .then(response => {
+                navigate(from, { replace: true })
+            }).catch(err => setError(err.message))
     }
     return (
         <div className='container mt-3'>
             <div className="row">
-                <Form onSubmit={handleSubmit} className="col-6 mx-auto bg-light p-4" style={{ textAlign: "left" }}>
+                <Form onSubmit={handleSubmit} className="col-lg-6 mx-auto bg-light p-4" style={{ textAlign: "left" }}>
                     <h2 className='text-center fst-italic'>Login</h2>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -53,11 +73,11 @@ const Login = () => {
                 <div>
                     <p>Or Login with</p>
                     <p>
-                        <button className='btn btn-outline-dark me-3'>
+                        <button onClick={handleGoogleProvider} className='btn btn-outline-dark me-3'>
                             <span className='me-2'>Google</span>
                             <FaGoogle></FaGoogle>
                         </button>
-                        <button className='btn btn-outline-dark'>
+                        <button onClick={handleGithubProvider} className='btn btn-outline-dark'>
                             <span className='me-2'>Github</span>
                             <FaGithub></FaGithub>
                         </button>

@@ -1,9 +1,14 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
     const courseData = useLoaderData();
+    const navigate = useNavigate();
     const { title, img, price, instructor } = courseData;
+
+    const handleCheckout = (e) => {
+        navigate("/order-confirmed");
+    }
     return (
         <div className='mt-3 checkout'>
             <h2>Checkout</h2>
@@ -23,22 +28,22 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
-                    <form className="col-lg-3 col-12 text-center">
+                    <form onSubmit={handleCheckout} className="col-lg-3 col-12 text-center">
                         <div className="col-auto mb-2">
                             <label htmlFor="staticfname" className="visually-hidden">First Name</label>
-                            <input type="text" className="form-control" id="staticfname" placeholder='First Name' />
+                            <input type="text" className="form-control" id="staticfname" placeholder='First Name' required />
                         </div>
                         <div className="col-auto mb-2">
                             <label htmlFor="staticlname" className="visually-hidden">Last Name</label>
-                            <input type="text" className="form-control" id="staticlname" placeholder='Last Name' />
+                            <input type="text" className="form-control" id="staticlname" placeholder='Last Name' required />
                         </div>
                         <div className="col-auto mb-2">
                             <label htmlFor="staticEmail" className="visually-hidden">Email</label>
-                            <input type="text" className="form-control" id="staticEmail" placeholder='Email' />
+                            <input type="text" className="form-control" id="staticEmail" placeholder='Email' required />
                         </div>
                         <div className="col-auto mb-2">
                             <label htmlFor="staticPhone" className="visually-hidden">Phone Number</label>
-                            <input type="text" className="form-control" id="staticPhone" placeholder='Phone Number' />
+                            <input type="text" className="form-control" id="staticPhone" placeholder='Phone Number' required />
                         </div>
                         <div class="col-auto">
                             <button type="submit" className="btn btn-success w-100">Confirm Order</button>
