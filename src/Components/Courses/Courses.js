@@ -8,8 +8,8 @@ const Courses = () => {
     const courses = useLoaderData();
     return (
         <div className='courses px-lg-4 p-2'>
-            <div className="container-fluid my-4">
-                <div className="row">
+            <div className="container-fluid my-lg-4">
+                <div className="row flex-column-reverse flex-md-row course-row">
                     <div className="col-md-9 col-12 mx-auto">
                         <h2>Our Available Courses</h2>
 
@@ -23,7 +23,7 @@ const Courses = () => {
                             }
                         </div>
                     </div>
-                    <div className="col-md-3 d-none mt-3 d-lg-block">
+                    <div className="col-md-3 col-12 mt-md-3 ">
                         <RightSideBar></RightSideBar>
                     </div>
                 </div>

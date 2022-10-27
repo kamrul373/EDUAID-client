@@ -60,11 +60,17 @@ const Header = () => {
                                                     src={user?.photoURL}
                                                     style={{ width: "30px", height: "30px" }}
                                                     alt={user?.displayName}
+                                                    className="d-md-block d-none"
                                                 />
 
 
                                             )}
                                         </OverlayTrigger>
+                                        {/* for mobile devices */}
+                                        <div className='text-center d-md-none d-block'>
+                                            <Image src={user?.photoURL} alt={user?.displayName} style={{ width: "30px", height: "30px" }} roundedCircle />
+                                            <span className='ms-2'>{user?.displayName}</span>
+                                        </div>
                                         <Link onClick={handleLogOut} className="text-decoration-none mx-lg-3 my-2 my-lg-0 badge text-bg-success logout">Log Out</Link>
                                     </> :
                                     <>
