@@ -1,3 +1,15 @@
+# Project Title : EDUAID
+## Live link : https://eduaid-ab186.web.app/
+## Features of This project:
+* Fully Responsive Educational Web App
+* Well designed courses 
+* Login / Regsiter Authentication with email and password
+* Google and Github login authentication included 
+* Private routes for authenticated users 
+* User Error handling 
+* Beautiful layout of home , blog , courses , faq , footer etc
+* 404 page 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
