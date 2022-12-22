@@ -4,6 +4,7 @@ import router from './Routes/routes/routes';
 import { Toaster } from 'react-hot-toast';
 import { createContext, useEffect, useState } from 'react';
 import { Button, Spinner } from 'react-bootstrap';
+import Loading from './Components/Shared/Loading/Loading';
 
 export const CategoryContext = createContext();
 
@@ -19,18 +20,7 @@ function App() {
       });
   }, []);
   if (loading) {
-    return <div className='d-flex justify-content-center align-items-center min-vh-100'>
-      <button className='explore-course-btn'>
-        <Spinner
-          as="span"
-          animation="grow"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-        />
-        Loading</button>
-
-    </div>
+    return <Loading></Loading>
   }
   return (
     <CategoryContext.Provider value={categories}>

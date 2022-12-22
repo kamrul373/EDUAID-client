@@ -1,11 +1,17 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import RightSideBar from '../Shared/RightSideBar/RightSideBar';
 import SingleCourse from '../SingleCourse/SingleCourse';
+import Loading from '../Shared/Loading/Loading';
 
 const Courses = () => {
     // loading data
     const courses = useLoaderData();
+    const navigation = useNavigation();
+
+    if (navigation.state === "loading") {
+        return <Loading></Loading>
+    }
     return (
         <div className='courses px-lg-4 p-2'>
             <div className="container-fluid my-lg-4">
