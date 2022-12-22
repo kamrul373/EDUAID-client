@@ -7,7 +7,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../../assets/img/logo.png";
 import { AuthContext } from '../../../context/AuthContextProvider';
 import "./Header.css";
-
+import { BiSun, BiMoon } from "react-icons/bi";
 const Header = () => {
     // toogle mode
     const [mode, setMode] = useState(false)
@@ -22,6 +22,12 @@ const Header = () => {
     // mode event handler
     const handlemode = () => {
         setMode(!mode);
+        console.log(mode)
+        if (mode === true) {
+            document.boyd.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
     }
     return (
         <header className='main-menu'>
@@ -79,7 +85,7 @@ const Header = () => {
                                     </>
                             }
 
-                            <Link onClick={handlemode} className={`text-decoration-none badge rounded-pill  ${mode ? "text-bg-dark " : "bg-white"} `}>{mode ? "Dark Mode" : "Light Mode"}</Link>
+                            {/* <Button onClick={handlemode} className="text-decoration-none badge rounded-pill bg-transparent text-black border-success "  >{!mode ? <BiSun className='fs-5'></BiSun> : <BiMoon className='fs-5'></BiMoon>}</Button> */}
 
                         </Nav>
                     </Navbar.Collapse>
