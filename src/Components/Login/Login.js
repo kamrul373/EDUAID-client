@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthContextProvider';
@@ -8,6 +8,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     // error state
     const [error, setError] = useState(null);
+    // lading state
+    const [loading, setLoading] = useState(false)
     // auth context
     const { login, loginWithProvider } = useContext(AuthContext);
     // navigate 
@@ -16,12 +18,14 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
     // login event handler
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         login(email, password)
             .then(response => {
+                setLoading(false)
                 navigate(from, { replace: true });
             }).catch(err => {
                 if (err.message.includes("auth/user-not-found")) {
@@ -35,8 +39,9 @@ const Login = () => {
                 if (err.message.includes("auth/too-many-requests")) {
                     setError("Please try later or reset your password!")
                 }
+                setLoading(false)
             })
-        console.log(email, password);
+        //console.log(email, password);
     }
     // login with google
     const handleGoogleProvider = () => {
@@ -79,7 +84,11 @@ const Login = () => {
                     </Form.Text>
                     <div className='text-center'>
                         <Button variant="success" type="submit" className="w-50">
-                            Login
+                            {
+                                loading ? <Spinner animation="border" variant="light" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner> : "Login"
+                            }
                         </Button>
                     </div>
                 </Form>

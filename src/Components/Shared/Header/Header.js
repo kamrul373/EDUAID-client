@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Button, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Image, OverlayTrigger, Toast, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../../assets/img/logo.png";
 import { AuthContext } from '../../../context/AuthContextProvider';
+import { toast } from 'react-hot-toast';
 import "./Header.css";
 import { BiSun, BiMoon } from "react-icons/bi";
 const Header = () => {
@@ -16,7 +17,10 @@ const Header = () => {
     const navigate = useNavigate();
     // logout event handler
     const handleLogOut = () => {
-        logOut().then(() => { navigate("/login") })
+        logOut().then(() => {
+            toast.success("Successfully logged out")
+            navigate("/login")
+        })
             .catch(error => console.log(error))
     }
     // mode event handler
