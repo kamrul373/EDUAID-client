@@ -1,19 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContextProvider';
 
 const Register = () => {
     // states
     const [checked, setChecked] = useState(false);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false)
 
     // auth context
     const { createUser, updateUserProfile } = useContext(AuthContext);
-
+    const navigate = useNavigate()
     // form submit event handler
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault();
         const form = e.target;
         // taking values from user submission
@@ -21,6 +23,7 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+
         // if no error then user creation proceed
         if (!error) {
             createUser(email, password)
@@ -33,9 +36,15 @@ const Register = () => {
                         .then(() => { })
                         .catch(error => console.log(error));
                     toast.success('Successfully Registered');
-
+                    navigate("/")
+                    setLoading(false)
                 })
-                .catch(error => console.error(error));
+                .catch(error => {
+                    if (error.message.includes("auth/email-already-in-use")) {
+                        toast.error("User already exist")
+                    }
+                    setLoading(false)
+                });
         }
 
     }
@@ -91,7 +100,12 @@ const Register = () => {
                     </Form.Group>
                     <div className='text-center'>
                         <Button variant="success" type="submit" disabled={!checked} className="w-50">
-                            Register
+                            {
+                                loading ? <Spinner animation="border" variant="light" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner> : "Register"
+                            }
+
                         </Button>
                     </div>
                 </Form>

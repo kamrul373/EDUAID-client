@@ -23,7 +23,19 @@ const Login = () => {
         login(email, password)
             .then(response => {
                 navigate(from, { replace: true });
-            }).catch(err => setError(err.message))
+            }).catch(err => {
+                if (err.message.includes("auth/user-not-found")) {
+                    setError("User not found !")
+
+                }
+                if (err.message.includes("auth/wrong-password")) {
+                    setError("Email password mismatch")
+
+                }
+                if (err.message.includes("auth/too-many-requests")) {
+                    setError("Please try later or reset your password!")
+                }
+            })
         console.log(email, password);
     }
     // login with google
