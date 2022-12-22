@@ -1,3 +1,18 @@
+# Project Title : EDUAID
+## Live link : https://eduaid-ab186.web.app/
+### Server : https://github.com/kamrul373/eduaid-server
+## Features of This project:
+* Fully Responsive Educational Web App
+* Well designed courses 
+* Login / Regsiter Authentication with email and password
+* Google and Github login authentication included 
+* Private routes for authenticated users 
+* User Error handling 
+* Beautiful layout of home , blog , courses , faq , footer etc
+* 404 page 
+
+## Technology : React JS , Express js , React Bootstrap, MongoDB, Node JS , Firebase, hot toast , react router dom, react icons
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
