@@ -5,6 +5,7 @@ import HomeCatDesigner from '../Shared/HomeCatDesigner/HomeCatDesigner';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import SingleCourse from '../SingleCourse/SingleCourse';
+import Contact from '../Contact/Contact';
 
 
 const Home = () => {
@@ -33,9 +34,9 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <div className='mx-auto px-5' >
+            <div className='mx-auto px-lg-5 px-3' >
                 <h2 className='my-5'>Exclusive Live Courses</h2>
-                <div className='row row-cols-1 row-cols-lg-3 gy-lg-4 px-5'>
+                <div className='row row-cols-1 row-cols-lg-3 gy-lg-4 px-lg-5 px-3'>
                     {
                         livecourse.map(course => <SingleCourse
                             key={course._id}
@@ -45,6 +46,7 @@ const Home = () => {
                 </div>
 
             </div>
+            <Contact></Contact>
         </div>
     );
 };
